@@ -1,6 +1,7 @@
 @import './components/fonts';
 @import './components/colors';
 @import './components/vars';
+@import './components/media';
 
 *{
     margin: 0;
@@ -8,6 +9,9 @@
     border: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
+}
+body{
+    font-size: 15px;
 }
 
 h1, h2, h3, h4, h4, h6, a, p, ul, input, textarea{
@@ -25,26 +29,210 @@ a{
 
 .contenedor{
     background-color: $fondo;
-    .navegador{
-        z-index: 2;
-        position: fixed;
-        width: 100vw;
+    #navegador{
+        ion-icon{
+            cursor: pointer;
+        }
+        width: 100%;
         height: $h-nav;
+        position: fixed;
+        z-index: 5;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        color: $blanco;
-        ul{
-            color: $blanco;
+        padding: 0 $pad-20;
+        text-transform: capitalize;
+        transition: .5s ease-in-out;
+
+        .logo{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            color: white;
+        }
+        .grupo{
             display: flex;
-            justify-content: start;
-            li{
-                box-sizing: border-box;
-                padding: 0 $pad-10;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            transition: .5s ease-in-out;
+            .navegacion{
+                display: flex;
+                li{
+                    position: relative;
+                    margin: 0 $pad-10;
+                    a{
+                        color: white;
+                    }
+                    a::before{
+                        content: '';
+                        position: absolute;
+                        bottom: -1px;
+                        left: 0;
+                        width: 100%;
+                        height: 1px;
+                        background-color: white;
+                        transform: scaleX(0);
+                        transition: transform .5s ease-in-out;
+                        transform-origin: right;
+                    }
+                    a:hover::before{
+                        transform: scaleX(1);
+                        transform-origin: left;
+                    }
+                }
+            }
+            .cliente{
+                display: flex;
+                align-items: center;
+                ul{
+                    display: flex;
+                    li{
+                        position: relative;
+                        margin: 0 $pad-10;
+                        a{
+                            color: white;
+                        }
+                        a::before{
+                            content: '';
+                            position: absolute;
+                            bottom: -1px;
+                            width: 100%;
+                            height: 1px;
+                            background-color: white;
+                            transform: scaleX(0);
+                            transition: transform .5s ease-in-out;
+                            transform-origin: right;
+                        }
+                        a:hover::before{
+                            transform: scaleX(1);
+                            transform-origin: left;
+                        }
+                    }
+                }
+                .btn-buscar{
+                    width: 18px;
+                    height: 18px;
+                    color: white;
+                    padding: 0 $pad-10;
+                }
+            }
+            .box-buscador{
+                position: absolute;
+                top: 0;
+                right: $pad-20;
+
+                opacity: 0;
+                visibility: hidden;
+
+                display: flex;
+                align-items: center;
+
+                transition: .5s ease-in-out;
+
+                input{
+                    background-color: rgba(255, 255, 255, 0.062);
+                    font-size: .9rem;
+                    color: white;
+                    padding: 5px $pad-10;
+                    font-style: italic;
+                    border-bottom: .5px solid white;
+                }
+                input:focus{
+                    outline: none;
+                }
+                .btn-enviar{
+                    width: 18px;
+                    height: 18px;
+                    position: absolute;
+                    right: $pad-10;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: white;
+                }
+            }
+            .box-buscador.show{
+                opacity: 1;
+                visibility: visible;
+                width: 100%;
+                top: 0;
+                left: 0;
+                transform: translateY(-100%);
+                input{
+                    width: 100%;
+                    background-color: transparent;
+                }
+                .btn-enviar{
+                    bottom: 0;
+                    opacity: 1;
+                }
+            }
+            .active{
+                visibility: visible;
+                opacity: 1;
+                top: $h-nav;
             }
         }
-        .logo a{
-            color: $blanco;
+        .grupo.show{
+            transform: translateX(0);
+            flex-direction: column;
+            align-items: start;
+            
+            .navegacion{
+                flex-direction: column;
+                align-items: start;
+                li{
+                    padding: $pad-10 0;
+                }
+            }
+            .cliente{
+                ul{
+                    width: 100%;
+                    li{
+                        padding: $pad-10 0;
+                    }
+                }
+                .btn-buscar{
+                    opacity: 0;
+                }
+            }
+        }
+        .btn-menu{
+            position: absolute;
+            left: 0;
+            top: $pad-10;
+            opacity: 0;
+            width: 25px;
+            height: 25px;
+            color: white;
+            transition: .5s ease-in-out;
+        }
+        .btn-close-nav{
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            color: white;
+        }
+
+    }
+    #navegador.show{
+        padding-top: $pad-20*4;
+        background-color: black;
+        height: 100vh;
+        width: 100%;
+        min-width: 350px;
+        max-width: 400px;
+        flex-direction: column;
+        .logo{
+            top: $pad-10;
+        }
+        .btn-close-nav{
+            opacity: 1;
+            visibility: visible;
+            top: $pad-20;
+            right: $pad-20 + $pad-10;
+            width: 20px;
+            height: 20px;
         }
     }
     #inicio{
@@ -82,9 +270,9 @@ a{
         height: 350px;
 
         .categoria-botones{
-            width: 60%;
             display: flex;
             justify-content: space-around;
+            flex-wrap: wrap;
             .categoria{
                 display: flex;
                 flex-direction: column;
@@ -154,7 +342,6 @@ a{
         display: flex;
         flex-direction: column;
         .nosotros-promo{
-            margin: $pad-20 0;
             position: relative;
             min-height: 500px;
             height: 50vh;
@@ -182,7 +369,9 @@ a{
             }
         }
         .wrapper-vendedores{
+            margin: $pad-20 0;
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             grid-gap: $pad-15;
             .vendedor{
@@ -219,6 +408,87 @@ a{
     #outro{
         background-color: $crema;
         padding: $pad-20;
+    }
+    #pie{
+        width: 100%;
+        background-color: rgb(173, 165, 156);
+        padding: $pad-10 0;
+        color: black;
+        .wrapper-pie{
+
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: $pad-10;
+            .contacto{
+                width: 50%;
+                max-width: 400px;
+                h4{
+                    font-weight: 500;
+                    padding-bottom: 5px;
+                }
+                p{
+                    font-size: 12px;
+                    padding: $pad-10 0;
+                }
+                input{
+                    padding-left: $pad-10;
+                    padding-bottom: 3px;
+                    width: 100%;
+                    background-color: transparent;
+                    border-bottom: solid 0.8px rgb(80, 80, 80);
+                    font-style: italic;
+                    font-weight: 300;
+                }
+                input:focus{
+                    outline-width: 0;
+                    background-color: transparent;
+                    border-bottom: solid 1px black;
+                }
+                #btn-enviar{
+                    position: absolute;
+                    transform: translate(-20px, 5px);
+                    cursor: pointer;
+                }
+            }
+            .enlaces{
+                display: flex;
+                ul{
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    li{
+                        padding: $pad-10/2 $pad-10;
+                        a{
+                            color: black;
+                        }
+                    }
+                }
+            }
+        }
+        .credits{
+            width: 100%;
+            height: 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            ul{
+                display: flex;
+                li{
+                    padding: 0 $pad-10;
+                    display: flex;
+                    align-items: center;
+                    a{
+                        text-decoration: underline;
+                        display: flex; align-items: center;
+                        color: black;
+                        ion-icon{
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 body::-webkit-scrollbar{
