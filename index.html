@@ -9,10 +9,10 @@
     <meta property="og:site_name" content="E-commerce">
     <meta property="og:type" content="website">
     <meta property="og:title" content="E-commerce">
-    <meta property="og:description" content="Pasión por el tejido">
+    <meta property="og:description" content="Pasión por el tejido y la moda urbana">
     <meta property="og:url" content="https://daiana404.github.io/E-commerce/">
-    <meta property="og:image" content="https://www.grandespymes.com.ar/wp-content/uploads/2021/03/e-commerce-1.jpg">
-    <meta property="og:image:secure_url" content="https://www.grandespymes.com.ar/wp-content/uploads/2021/03/e-commerce-1.jpg">
+    <meta property="og:image" content="https://ep01.epimg.net/elpais/imagenes/2018/04/11/album/1523454826_046913_1523455042_noticia_normal.jpg">
+    <meta property="og:image:secure_url" content="https://ep01.epimg.net/elpais/imagenes/2018/04/11/album/1523454826_046913_1523455042_noticia_normal.jpg">
 
 
     <title>E-Commerce</title>
@@ -23,35 +23,33 @@
 <body>
     
         <div class="contenedor">
-            <nav id="navegador">
-                <a class="logo" href="#"><h1>Logo</h1></a>
-
-                <div class="grupo">
-                    <ul class="navegacion">
-                        <li><a href="#">Productos</a></li>
-                        <li><a href="#">Sobre nosotros</a></li>
-                        <li><a href="#">Locales</a></li>
-                        <li><a href="#">Preguntas</a></li>
-                    </ul>
-                    <div class="cliente">
-                        <ul>
+            <header id="encabezado">
+                <nav class="navegador">
+                    <div class="grupo-desplegable">
+                        <ul class="lista-navegacion">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Productos</a></li>
+                            <li><a href="#">Galeria</a></li>
+                            <li><a href="#">Sobre Nosotros</a></li>
+                            <li><a href="#">Preguntas</a></li>
+                        </ul>
+                        <div class="caja-buscador">
+                            <input id="input-buscar" name="buscar" type="text" placeholder="Buscar">
+                            <ion-icon class="btn-enviar"  name="arrow-forward-outline"></ion-icon>
+                        </div>
+                        <ul class="lista-usuario">
                             <li><a href="#">Cuenta</a></li>
                             <li><a href="#">Carrito</a></li>
+                            <ion-icon class="btn-buscar" name="search-outline"></ion-icon>
                         </ul>
-                        <ion-icon class="btn-buscar" name="search-outline"></ion-icon>
+                        <ion-icon class="btn-cerrar" name="close-outline"></ion-icon>
                     </div>
-                    <div class="box-buscador">
-                        <input type="text" placeholder="Buscar">
-                        <ion-icon class="btn-enviar" name="chevron-forward-outline"></ion-icon>
-                    </div>
-                </div>
-
+                </nav>
                 <ion-icon class="btn-menu" name="menu-outline"></ion-icon>
-
-                <ion-icon class="btn-close-nav" name="close-outline"></ion-icon>
-            </nav>
+                <a class="nombre" href="#"><h1>Logo</h1></a>
+            </header>
         
-            <main>
+            <main class="principal">
                 <section id="inicio">
                     <img src="./scss/img/img-home-3.webp" alt="">
                     <div class="inicio-promo">
@@ -94,8 +92,8 @@
                         <p>Nuestros destacados</p>
                         <div class="slider-bar">
                             <a href="#">Ver todo</a>
-                            <ion-icon name="chevron-back-outline"></ion-icon>
-                            <ion-icon name="chevron-forward-outline"></ion-icon>
+                            <ion-icon class="ico-left" name="chevron-back-outline"></ion-icon>
+                            <ion-icon class="ico-right" name="chevron-forward-outline"></ion-icon>
                         </div>
                     </div>
                     <div class="wrapper-slider">
@@ -116,15 +114,14 @@
                             <button>our button</button>
                         </div>
                     </div>
-                    
                     <div class="wrapper-vendedores">
                         <div class="vendedor">
-                            <img src="./scss/img/perfil-1.jpg" alt="">
+                            <img src="https://images.pexels.com/photos/15131506/pexels-photo-15131506.jpeg?cs=srgb&dl=pexels-jonathan-meza-15131506.jpg&fm=jpg" alt="">
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt temporibus atque totam pariatur enim. Maxime reprehenderit explicabo minima, odio libero ex!</p>
                             <span class="nombre">nombre apellido</span>
                         </div>
                         <div class="vendedor">
-                            <img src="./scss/img/perfil-2.jpg" alt="">
+                            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/hollywood-cla-sico-1648533620.jpg?crop=1.00xw:0.503xh;0,0.0651xh&resize=640:*" alt="">
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae labore, voluptatibus non corrupti explicabo itaque dignissimos repellat!</p>
                             <span class="nombre">nombre apellido</span>
                         </div>
@@ -164,9 +161,9 @@
                 </div>
 
                 <div class="credits">
-                    <ul>
-                        <li>© Copyright by Logo</li>
-                        <li>Desarrollado por&nbsp<a href="#">Polo Daiana</a> </li>
+                    <ul class="copy">
+                        <li>Copyright © 2023 Logo</li>
+                        <li>Desarrollado por &nbsp<a href="#">Polo Daiana</a> </li>
                         <li><a href="#">Términos y Condiciones</a></li>
                     </ul>
                     <ul class="social">
@@ -181,7 +178,7 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    <script src="./js/navbar.js"></script>
+    <script src="js/navbar.js"></script>
 
 </body>
 </html>

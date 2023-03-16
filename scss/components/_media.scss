@@ -1,7 +1,27 @@
-@media only screen and (max-width: 1000px) {
-    #navegador{
-        .grupo{
-            transform: translateX(-120%);
+@media only screen and (max-width: 600px) {
+    #pie{
+        .wrapper-pie{
+            flex-direction: column;
+            padding: 1rem 3rem!important;
+            grid-gap: 1.5rem;
+            .enlaces{
+                width: 100%;
+                justify-content: start!important;
+                ul li{
+                    padding-left: 0!important;
+                    margin-right: 1rem!important;
+                }
+            }
+        }
+        .credits{
+            flex-direction: column;
+            .copy{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                grid-gap: .3rem;
+                padding: 1rem 0;
+            }
         }
     }
 }
