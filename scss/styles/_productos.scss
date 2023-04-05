@@ -1,0 +1,21 @@
+.cuerpo-productos{
+    $ancho-lateral: 280px;
+    display: grid; 
+    grid-template-columns: auto $ancho-lateral;
+    grid-template-areas: 'a1 a2';
+    position: relative;
+    .lateral-enlaces{
+        grid-area: a2;
+        background-color: gray;
+        position: fixed; right: 0; top: 0; width: $ancho-lateral; height: 100%;
+    }
+    .productos-html{
+        #encabezado{
+            position: sticky; 
+        }
+        .principal{
+            min-height: 100vh;
+
+        }
+    }
+}

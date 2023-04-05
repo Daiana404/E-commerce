@@ -60,11 +60,11 @@ btnCerrar.addEventListener('click', () => {
     navegador.classList.add('hide');
     navegador.style.setProperty("-webkit-filter", "drop-shadow(0 0 0 transparent)");
 })
-  
 let x = window.matchMedia("(max-width: 1000px)")
   mediaQueries(x);
 x.addListener(mediaQueries);
 //Scroll
+const itColor = document.querySelectorAll('.it-nav');
 window.addEventListener('scroll', () => {
     if(window.scrollY > 200) {
         encabezado.style.backgroundColor = 'white';

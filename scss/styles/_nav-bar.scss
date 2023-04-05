@@ -5,14 +5,17 @@
     position: fixed;
     z-index: 5;
     transition: $trans-05;
-    .color{
-        color: $clr-oscuro;
+    .clr-primario{
+        color: black;
+    }
+    .clr-secundario{
+        background-color: white;
     }
     ion-icon{
         width: 20px;
         height: 20px;
         cursor: pointer;
-        @extend .color;
+        @extend .clr-primario;
     }
     .nombre{
         position: absolute;
@@ -22,7 +25,7 @@
         h1{
             font-size: 1.5em;
             font-weight: 800;
-            @extend .color;
+            @extend .clr-primario;
         }
     }
     .navegador{
@@ -60,7 +63,7 @@
                     position: relative;
                     a{
                         font-weight: 300;
-                        @extend .color;
+                        @extend .clr-primario;
                     }
                 }
             }
@@ -72,7 +75,7 @@
                     position: relative;
                     a{
                         font-weight: 300;
-                        @extend .color;
+                        @extend .clr-primario;
                     }
                 }
                 .btn-buscar{
@@ -115,8 +118,8 @@
         max-width: 350px;
         width: 100%;
         height: 100%;
-        background-color: white;
         padding: $pad-20;
+        @extend .clr-secundario;
         .grupo-desplegable{
             width: 100%;
             height: 100%;
@@ -163,5 +166,24 @@
     }
     .navegador.hide{
         transform: translateX(-100%);
+    }
+}
+/* .it-nav {
+    color: white!important;
+} */
+#encabezado.dark-mode{
+    .clr-primario{
+        color: $clr-claro;
+    }
+    .navegador.activo{
+        background-color: black;
+        
+        .grupo-desplegable{
+            .caja-buscador.activo{
+                input{
+                    background-color: rgba(56, 56, 56, 0.589);
+                }
+            }
+        }
     }
 }
